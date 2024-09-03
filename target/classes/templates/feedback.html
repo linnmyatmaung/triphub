@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Feedback Form</title>
+</head>
+<body>
+    <h1>Feedback Form for <span th:text="${fullname}"></span></h1>
+    <form th:action="@{/api/feedback}" method="post">
+        <input type="hidden" name="passengerId" th:value="${passengerId}" />
+        <label for="comments">Feedback:</label>
+        <input type="text" id="comments" name="comments" required />
+        <button type="submit">Submit Feedback</button>
+    </form>
+</body>
+</html>
