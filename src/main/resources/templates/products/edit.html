@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Product</title>
+</head>
+<body>
+    <!-- Display error message -->
+    <div th:if="${errorMessage}" class="alert alert-danger">
+        <p th:text="${errorMessage}"></p>
+    </div>
+    <h1>Edit Product</h1>
+    <form th:action="@{/products/edit/{id}(id=${product.id})}" th:object="${product}" method="post">
+        <label>Name: <input type="text" th:field="*{name}" /></label>
+        <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</div>
+        <br>
+        <label>Price: <input type="text" th:field="*{price}" /></label>
+        <div th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Price Error</div>
+        <br>
+        <label>Description: <input type="text" th:field="*{description}" /></label>
+        <div th:if="${#fields.hasErrors('description')}" th:errors="*{description}">Description Error</div>
+        <br>
+        <button type="submit">Update</button>
+    </form>
+</body>
+</html>

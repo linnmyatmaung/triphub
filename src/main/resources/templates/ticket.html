@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Bus E-Ticket</title>
+</head>
+<body>
+    <h1>Bus E-Ticket</h1>
+    <p>Passenger ID: <span th:text="${passengerId}"></span></p>
+    <p>Full Name: <span th:text="${fullname}"></span></p>
+    <p>Bus ID: <span th:text="${busId}"></span></p>
+    <p>Bus ID: <span th:text="${mail}"></span></p>
+    <img th:src="'data:image/png;base64,' + ${qrCodeBase64}" alt="QR Code" />
+
+</body>
+</html>
